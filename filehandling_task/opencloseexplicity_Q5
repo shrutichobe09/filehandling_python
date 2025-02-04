@@ -1,0 +1,27 @@
+"""
+Q 5) What is the difference between using open() and close() explicitly versus using a
+ context manager (with statement) to handle file operations?
+
+"""
+# Open the file explicitly
+file = open('example.txt', 'r')
+try:
+    content = file.read()
+    print(content)
+finally:
+    # Always close the file in the finally block to ensure it's closed even if an error occurs
+    file.close()
+
+
+
+"""
+
+You manually open the file using open().
+After working with the file, you explicitly close it using file.close().
+If an error occurs before calling file.close(), the file might not get closed properly 
+unless you put file.close() in a finally block to ensure it's always executed.
+
+drawback 
+You must manually handle closing the file.
+There’s a risk of forgetting to close the file, which could cause resource leaks or unexpected behavior.
+"""
